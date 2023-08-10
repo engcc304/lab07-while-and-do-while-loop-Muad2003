@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Play Game",
+      "setup": "g++ -o a.out ./Lab/Lab07-While-DoWhile.cpp",
+      "run": "./a.out",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    }
+  ]
+}
