@@ -67,10 +67,8 @@ int main() {
     {
         printf( "Do you want to play game (1=play,-1=exit) :\n" ) ;
         scanf( "%d", &play ) ;
-        printf( "%d\n",randomNumber ) ;
 
-        if ( play != 1 )
-        {
+        if ( play != 1 ) {
             break ;
         }
         
