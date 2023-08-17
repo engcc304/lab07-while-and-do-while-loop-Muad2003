@@ -71,8 +71,10 @@ int main() {
         if ( play != 1 ) {
             break ;
         }
-        
-        while ( play ) {// play
+        min = 0 ;
+        max = 100 ;
+        score = 100 ;
+        while ( play = 1 ) {// play
         
         printf( "Guess the winning number (%d-%d) :\n",min ,max ) ;
         scanf( "%d", &inputuser ) ;
