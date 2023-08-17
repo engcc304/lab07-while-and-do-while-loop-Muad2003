@@ -50,10 +50,67 @@
 */
 
 #include <stdio.h>
+#include<stdlib.h>
+#include <ctime>
 
 int main() {
 
-    //--| YOUR CODE HERE
+    srand( time ( NULL ) ) ;
+    int score = 100 ;
+    int play, inputuser ;
+    int randomNumber = rand() % 100 + 1 ;
+    int i = 0 ;
+    int min = 0, max = 100 ;
+    int allscore = score ;
 
+    do
+    {
+        printf( "Do you want to play game (1=play,-1=exit) :\n" ) ;
+        scanf( "%d", &play ) ;
+
+        if ( play != 1 ) {
+            break ;
+        }
+        min = 0 ;
+        max = 100 ;
+        score = 100 ;
+        while ( play = 1 ) {// play
+        
+        printf( "Guess the winning number (%d-%d) :\n",min ,max ) ;
+        scanf( "%d", &inputuser ) ;
+
+        if ( inputuser == randomNumber ) { // win
+            printf( "That is correct! The winning number is %d.\n", randomNumber ) ;
+            printf( "Score this game: %d\n", allscore ) ;
+            break ;
+        }// end while win
+        
+        if ( inputuser != randomNumber ) { // worng
+            allscore -= 10 ;// ถ้าตอบผิด score จะ -10 ก่อน
+
+            if ( randomNumber > inputuser ) { // wrong. but high than randomber
+                printf( "Sorry, the winning number is HIGHER than %d. (Score=%d)\n", inputuser, allscore ) ;
+                if ( min <= inputuser ) {
+                    min = inputuser + 1 ;
+                }// ถ้า ตัวเลขที่ใส่มา น้อยกว่า min จะให้แสดง min เหมือนเดิม แต่ถ้ามากกว่า จะแสดงค่าใหม่แทน
+            }// end wrong higt
+
+            if ( randomNumber <= inputuser ) { // wrong. but low than randomnumber
+                printf( "Sorry, the winning number is LOWWER than %d. (Score=%d)\n", inputuser, allscore ) ;
+                if (max > inputuser) {
+                    max = inputuser - 1 ;
+                }// ถ้า ตัวเลขที่ใส่มา น้อยกว่า max จะให้แสดง max เหมือนเดิม แต่ถ้ามากกว่า จะแสดงค่าใหม่แทน
+            }// end wrong low
+        }// end wrong ของแท้
+        
+        if ( allscore == 0 ) { // check score
+            printf( "Game Over" ) ;
+            break ;
+        }// end if check score 
+
+    }//end play
+        
+    } while ( play = 1 ) ;
+    
     return 0 ;
 }//end main function
